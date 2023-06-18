@@ -37,14 +37,14 @@ export default function ProductPage({product}) {
       <Center>
         <ColWrapper>
           <WhiteBox>
-            <ProductImages images={product.images} />
+            <ProductImages image={product.image} />
           </WhiteBox>
           <div>
             <Title>{product.title}</Title>
             <p>{product.description}</p>
             <PriceRow>
               <div>
-                <Price>${product.price}</Price>
+                <Price>Rs.{product.price}</Price>
               </div>
               <div>
                 <Button primary onClick={() => addProduct(product._id)}>
