@@ -58,9 +58,15 @@ const ButtonsWrapper = styled.div`
 
 export default function Featured({product}) {
   const {addProduct} = useContext(CartContext);
+  // const tempavailability= product.availability
   function addFeaturedToCart() {
     addProduct(product._id);
   }
+
+  function cantaddtoCart(){
+    alert('Product out of stock');
+  }
+
   return (
     <Bg>
       <Center>
@@ -71,8 +77,10 @@ export default function Featured({product}) {
               <Desc>{product.description}</Desc>
               <ButtonsWrapper>
                 <ButtonLink href={'/product/'+product._id} outline={1} white={1}>Read more</ButtonLink>
-                <Button white onClick={addFeaturedToCart}>
-                  <CartIcon />
+                <Button white onClick={product.availability.toUpperCase()==='YES'? addFeaturedToCart:cantaddtoCart}>
+                  {/* {console.log(tempavailability.toUpperCase())} */}
+                  {/* {console.log(product.availability.toUpperCase())} */}
+                   <CartIcon />
                   Add to cart
                 </Button>
               </ButtonsWrapper>

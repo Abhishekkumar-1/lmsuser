@@ -61,8 +61,12 @@ const Price = styled.div`
   }
 `;
 
-export default function ProductBox({_id,title,author,publishedyear,genre,description,price,image}) {
+export default function ProductBox({_id,title,author,publishedyear,genre,description,availability,price,image}) {
   const {addProduct} = useContext(CartContext);
+
+  function cantaddtoCart(){
+    alert('Product out of stock');
+  }
   const url = '/product/'+_id;
   return (
     <ProductWrapper>
@@ -77,7 +81,10 @@ export default function ProductBox({_id,title,author,publishedyear,genre,descrip
           <Price>
             Rs.{price}
           </Price>
-          <Button block onClick={() => addProduct(_id)} primary outline>
+          <Button block 
+          // onClick={() => addProduct(_id)} 
+          onClick={()=> availability.toUpperCase()==='YES'? addProduct(_id):cantaddtoCart()} 
+          primary outline>
             Add to cart
           </Button>
         </PriceRow>
