@@ -6,35 +6,33 @@ import {Product} from "@/models/Product";
 import ProductsGrid from "@/components/ProductsGrid";
 import Title from "@/components/Title";
 // import { usePagination } from '@mantine/hooks';
-// import { useState } from "react";
-// import Pagination from "@/components/Pagination";
-// import { paginate } from "@/components/Pagination";
+import { useState } from "react";
+import Pagination from "@/components/Pagination";
+import { paginate } from "@/components/Pagination";
 
-export default function ProductsPage({products}) {
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const pageSize = 4;
+export default function ProductsPage({products}) { 
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 8;
 
-  // const onPageChange = (page) => {
-  //   setCurrentPage(page);
-  // };
+  const onPageChange = (page) => {
+    setCurrentPage(page);
+  };
 
-  // const paginatedPosts = paginate(products, currentPage, pageSize);
+  const paginatedPosts = paginate(products, currentPage, pageSize);
+  // console.log(paginatedPosts)
 
-
-
-
-  return (
+  return ( 
     <>
       <Header />
       <Center>
         <Title>All books</Title>
-        <ProductsGrid products={products} />
-        {/* <Pagination
+        <ProductsGrid products={paginatedPosts} />
+        <Pagination
           items={products.length} 
           currentPage={currentPage} // 1
           pageSize={pageSize} // 4
           onPageChange={onPageChange}
-        /> */}
+        /> 
         {/* <div>
           <button onClick={pagination.previous}>prev</button>
           <button onClick={pagination.next}>next</button>

@@ -1,3 +1,36 @@
+
+import styled from "styled-components";
+
+const Maindiv=styled.div``
+
+const StyledFirstul=styled.ul`
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ list-style: none;
+`;
+
+const PageItemActive=styled.li`
+display: flex;
+justify-content: center;
+align-items: center;
+width: 2rem;
+height: 2rem;
+border: 1px solid #eaeaea;
+border-radius: 0.5rem;
+cursor: pointer;
+background-color: black;
+`
+
+const PageLink=styled.button`
+cursor: pointer;
+border:0;
+background-color:black;
+color:white;
+font-weight:700;
+`
+
+
 export const paginate = (items, pageNumber, pageSize) => {
     const startIndex = (pageNumber - 1) * pageSize;
     return items.slice(startIndex, startIndex + pageSize);
@@ -10,24 +43,20 @@ const Pagination = ({ items, pageSize, currentPage, onPageChange }) => {
     const pages = Array.from({ length: pagesCount }, (_, i) => i + 1);
    
      return (
-      <div>
-        <ul className="">
+      <Maindiv>
+        <StyledFirstul >
           {pages.map((page) => (
-            <li
+            <PageItemActive
               key={page}
-            //   className={
-            //     page === currentPage ? styles.pageItemActive : styles.pageItem
-            //   }
             >
-              <a 
-            //   className={styles.pageLink}
+              <PageLink 
                onClick={() => onPageChange(page)}>
                 {page}
-              </a>
-            </li>
+              </PageLink>
+            </PageItemActive>
           ))}
-        </ul>
-      </div>
+        </StyledFirstul>
+      </Maindiv>
     );
    };
    
