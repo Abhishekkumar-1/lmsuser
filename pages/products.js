@@ -1,28 +1,27 @@
 import Header from "@/components/Header";
-import styled from "styled-components";
+// import styled from "styled-components";
 import Center from "@/components/Center";
 import {mongooseConnect} from "@/lib/mongoose";
 import {Product} from "@/models/Product";
 import ProductsGrid from "@/components/ProductsGrid";
 import Title from "@/components/Title";
-import { usePagination } from '@mantine/hooks';
-import { useState } from "react";
+// import { usePagination } from '@mantine/hooks';
+// import { useState } from "react";
+// import Pagination from "@/components/Pagination";
+// import { paginate } from "@/components/Pagination";
 
 export default function ProductsPage({products}) {
-  // const ITEMS_PER_PAGE=8;
-  // const [visibleResults,setVisibleResults]=useState([])(
-  //   {products.slice(0,ITEMS_PER_PAGE)}
-  // )
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const pageSize = 4;
 
-  // const pagination=usePagination({
-  //   total:Math.ceil({products?.length} / ITEMS_PER_PAGE),
-  //   initialPage:1,
-  //   onChange(page){
-  //     const start=(page-1)* ITEMS_PER_PAGE
-  //     const end= (start + ITEMS_PER_PAGE)
-  //     setVisibleResults(products.slice(start,end))
-  //   }
-  // })
+  // const onPageChange = (page) => {
+  //   setCurrentPage(page);
+  // };
+
+  // const paginatedPosts = paginate(products, currentPage, pageSize);
+
+
+
 
   return (
     <>
@@ -30,6 +29,12 @@ export default function ProductsPage({products}) {
       <Center>
         <Title>All products</Title>
         <ProductsGrid products={products} />
+        {/* <Pagination
+          items={products.length} 
+          currentPage={currentPage} // 1
+          pageSize={pageSize} // 4
+          onPageChange={onPageChange}
+        /> */}
         {/* <div>
           <button onClick={pagination.previous}>prev</button>
           <button onClick={pagination.next}>next</button>
