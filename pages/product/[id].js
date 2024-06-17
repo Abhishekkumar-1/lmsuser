@@ -41,7 +41,8 @@ export default function ProductPage({product}) {
           </WhiteBox>
           <div>
             <Title>{product.title}</Title>
-            <p>{product.description}</p>
+            <p>{product.description.slice(0,225)+"..."}</p>
+            <p>Availability: {product.availability.toUpperCase()}</p>
             <PriceRow>
               <div>
                 <Price>Rs.{product.price}</Price>
